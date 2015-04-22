@@ -1,0 +1,30 @@
+{
+  "name": "cache-require-paths",
+  "version": "0.1.0",
+  "description": "Caches resolved paths in module require to avoid Node hunting for right module. Speeds up app load.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bahmutov/cache-require-paths.git"
+  },
+  "keywords": [
+    "npm",
+    "node",
+    "application",
+    "load",
+    "startup",
+    "performance",
+    "speed",
+    "cache",
+    "resolution"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahmutov/cache-require-paths/issues"
+  },
+  "homepage": "https://github.com/bahmutov/cache-require-paths"
+}
