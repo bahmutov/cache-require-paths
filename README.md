@@ -22,6 +22,22 @@ The first time the app loads a cache of resolved file paths will be saved in a l
 Every application startup after that will reuse this filename cache to avoid "hunting" for right
 filename.
 
+## Results
+
+Here are results for loading common packages without and with caching resolved require paths.
+You can run any of this experiments inside the `test` folder. `node index.js` loads
+using the standard resolve. `node index.js --cache` uses a cache of the resolves paths.
+
+Using node 0.10.37
+
+    require('X')    |  standard (ms)  |  with cache (ms)  |  speedup (%)
+    ------------------------------------------------------------------
+    express@4.12.3  |        72       |       46          |     36
+    karma@0.12.31   |       230       |      170          |     26
+    grunt@0.4.5     |       120       |       95          |     20
+
+
+
 ## TODO
 
 - [ ] Cache only the absolute paths (relative paths resolve quickly)

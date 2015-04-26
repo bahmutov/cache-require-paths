@@ -1,0 +1,15 @@
+{
+  "name": "cache-require-source-test",
+  "version": "0.1.0",
+  "description": "test a couple of requires load",
+  "main": "index.js",
+  "devDependencies": {
+    "express": "4.12.3",
+    "grunt": "0.4.5",
+    "karma": "0.12.31",
+    "webkit-devtools-agent": "0.3.1"
+  },
+  "dependencies": {
+    "chrome-remote-interface": "0.6.1"
+  }
+}
