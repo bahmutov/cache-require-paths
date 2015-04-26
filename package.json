@@ -1,6 +1,6 @@
 {
   "name": "cache-require-paths",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Caches resolved paths in module require to avoid Node hunting for right module. Speeds up app load.",
   "main": "index.js",
   "scripts": {
