@@ -19,7 +19,7 @@ function time(fn) {
 }
 
 function load() {
-  var exp = require('grunt');
+  var exp = require('express');
 }
 
 time(load);
