@@ -4,7 +4,7 @@
   "description": "Caches resolved paths in module require to avoid Node hunting for right module. Speeds up app load.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cd test; node index; node index --cache; node index --cache"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,12 @@
   "bugs": {
     "url": "https://github.com/bahmutov/cache-require-paths/issues"
   },
-  "homepage": "https://github.com/bahmutov/cache-require-paths"
+  "homepage": "https://github.com/bahmutov/cache-require-paths",
+  "devDependencies": {
+    "pre-git": "0.2.1"
+  },
+  "pre-commit": [
+    "npm test",
+    "npm version"
+  ]
 }
