@@ -2,6 +2,15 @@
 
 > Caches resolved paths in module require to avoid Node hunting for right module. Speeds up app load.
 
+[![NPM][cache-require-paths-icon] ][cache-require-paths-url]
+
+[![Build status][cache-require-paths-ci-image] ][cache-require-paths-ci-url]
+
+[cache-require-paths-icon]: https://nodei.co/npm/cache-require-paths.png?downloads=true
+[cache-require-paths-url]: https://npmjs.org/package/cache-require-paths
+[cache-require-paths-ci-image]: https://travis-ci.org/bahmutov/cache-require-paths.png?branch=master
+[cache-require-paths-ci-url]: https://travis-ci.org/bahmutov/cache-require-paths
+
 This is a partial solution to Node "hunting" for right file to load when you require a 3rd party
 dependency. See [Node’s `require` is dog slow](https://kev.inburke.com/kevin/node-require-is-dog-slow/) 
 for details.
