@@ -13,7 +13,7 @@
 
 This is a partial solution to Node "hunting" for right file to load when you require a 3rd party
 dependency. See [Node’s `require` is dog slow](https://kev.inburke.com/kevin/node-require-is-dog-slow/) 
-for details.
+and [Faster Node app require](http://glebbahmutov.com/blog/faster-node-app-require/) for details.
 
 ## Use
 
