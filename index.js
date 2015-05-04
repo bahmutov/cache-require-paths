@@ -6,16 +6,21 @@ var exists = fs.existsSync;
 var _require = Module.prototype.require;
 var nameCache = exists(SAVE_FILENAME) ? JSON.parse(fs.readFileSync(SAVE_FILENAME, 'utf-8')) : {};
 
+var currentModuleCache;
+var pathToLoad;
+
 Module.prototype.require = function cachePathsRequire(name) {
 
-  var pathToLoad;
-
-  var currentModuleCache = nameCache[this.filename];
+  currentModuleCache = nameCache[this.filename];
   if (!currentModuleCache) {
     currentModuleCache = {};
     nameCache[this.filename] = currentModuleCache;
   }
-  if (currentModuleCache[name]) {
+  if (currentModuleCache[name] &&
+    // Some people hack Object.prototype to insert their own properties on
+    // every dictionary (for example, the 'should' testing framework). Check
+    // that the key represents a path.
+    typeof currentModuleCache[name] === 'string') {
     pathToLoad = currentModuleCache[name];
   } else {
     pathToLoad = Module._resolveFilename(name, this);
