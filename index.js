@@ -1,9 +1,12 @@
-var SAVE_FILENAME = './.cache-require-paths.json';
 var Module = require('module');
 var fs = require('fs');
 var exists = fs.existsSync;
 
 var _require = Module.prototype.require;
+var SAVE_FILENAME =
+  process.env.CACHE_REQUIRE_PATHS_FILE ?
+  process.env.CACHE_REQUIRE_PATHS_FILE :
+  './.cache-require-paths.json';
 var nameCache = exists(SAVE_FILENAME) ? JSON.parse(fs.readFileSync(SAVE_FILENAME, 'utf-8')) : {};
 
 var currentModuleCache;
