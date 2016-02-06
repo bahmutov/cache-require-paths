@@ -5,11 +5,14 @@
 [![NPM][cache-require-paths-icon] ][cache-require-paths-url]
 
 [![Build status][cache-require-paths-ci-image] ][cache-require-paths-ci-url]
+[![semantic-release][semantic-image] ][semantic-url]
 
 [cache-require-paths-icon]: https://nodei.co/npm/cache-require-paths.png?downloads=true
 [cache-require-paths-url]: https://npmjs.org/package/cache-require-paths
 [cache-require-paths-ci-image]: https://travis-ci.org/bahmutov/cache-require-paths.png?branch=master
 [cache-require-paths-ci-url]: https://travis-ci.org/bahmutov/cache-require-paths
+[semantic-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+[semantic-url]: https://github.com/semantic-release/semantic-release
 
 This is a partial solution to Node "hunting" for right file to load when you require a 3rd party
 dependency. See [Node’s `require` is dog slow](https://kev.inburke.com/kevin/node-require-is-dog-slow/) 
