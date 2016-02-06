@@ -27,9 +27,11 @@ require('cache-require-paths');
 ...
 ```
 
-The first time the app loads a cache of resolved file paths will be saved in a local `.` file.
-Every application startup after that will reuse this filename cache to avoid "hunting" for right
-filename.
+The first time the app loads, a cache of resolved file paths will be saved to `.cache-require-paths.json`
+in the current directory.  Every application startup after that will reuse this filename cache to avoid
+"hunting" for the right filename.
+
+To save cached paths to a different file, set the environmental variable `CACHE_REQUIRE_PATHS_FILE`.
 
 ## Results
 
