@@ -7,7 +7,12 @@ var SAVE_FILENAME =
   process.env.CACHE_REQUIRE_PATHS_FILE ?
   process.env.CACHE_REQUIRE_PATHS_FILE :
   './.cache-require-paths.json';
-var nameCache = exists(SAVE_FILENAME) ? JSON.parse(fs.readFileSync(SAVE_FILENAME, 'utf-8')) : {};
+var nameCache;
+try {
+  nameCache = exists(SAVE_FILENAME) ? JSON.parse(fs.readFileSync(SAVE_FILENAME, 'utf-8')) : {};
+} catch (err) {
+  nameCache = {};
+}
 
 var currentModuleCache;
 var pathToLoad;
@@ -30,7 +35,14 @@ Module.prototype.require = function cachePathsRequire(name) {
     currentModuleCache[name] = pathToLoad;
   }
 
-  return _require.call(this, pathToLoad);
+  try {
+    return _require.call(this, pathToLoad);
+  } catch (err) {
+    // Cache may be outdated; resolve and try again
+    pathToLoad = Module._resolveFilename(name, this);
+    currentModuleCache[name] = pathToLoad;
+    return _require.call(this, pathToLoad);
+  }
 };
 
 function printCache() {
