@@ -56,6 +56,10 @@ function printCache() {
 }
 
 process.once('exit', function () {
-  fs.writeFileSync(SAVE_FILENAME,
-    JSON.stringify(nameCache, null, 2), 'utf-8');
+  try {
+    fs.writeFileSync(SAVE_FILENAME,
+      JSON.stringify(nameCache, null, 2), 'utf-8');
+  } catch (err) {
+    console.error('cache-require-paths: Failed saving cache: ' + err.toString());
+  }
 });
