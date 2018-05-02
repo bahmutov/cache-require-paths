@@ -28,21 +28,16 @@ Module.prototype.require = function cachePathsRequire(name) {
     // Some people hack Object.prototype to insert their own properties on
     // every dictionary (for example, the 'should' testing framework). Check
     // that the key represents a path.
-    typeof currentModuleCache[name] === 'string') {
+    typeof currentModuleCache[name] === 'string' &&
+    fs.existsSync(currentModuleCache[name]) // the file must exist for a cache hit
+  ) {
     pathToLoad = currentModuleCache[name];
   } else {
     pathToLoad = Module._resolveFilename(name, this);
     currentModuleCache[name] = pathToLoad;
   }
 
-  try {
-    return _require.call(this, pathToLoad);
-  } catch (err) {
-    // Cache may be outdated; resolve and try again
-    pathToLoad = Module._resolveFilename(name, this);
-    currentModuleCache[name] = pathToLoad;
-    return _require.call(this, pathToLoad);
-  }
+  return _require.call(this, pathToLoad);
 };
 
 function printCache() {
